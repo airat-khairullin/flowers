@@ -1,0 +1,9 @@
+@import "theming";
+
+$config: (
+  font-size: 4px,
+  font-family: SFUIDisplay
+);
+
+
+@include core($config);

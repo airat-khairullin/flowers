@@ -1,0 +1,6 @@
+.u-hidden-if-empty {
+
+  &:empty {
+    display: none;
+  }
+}

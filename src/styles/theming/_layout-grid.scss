@@ -1,0 +1,24 @@
+@mixin col($suffix: null) {
+  @for $i from 1 through $columnCount {
+    .#{string-join(col $suffix $i)} {
+      grid-column-end: span $i;
+    }
+    .#{string-join(offset $suffix $i)} {
+      grid-column-start: $i + 1;
+    }
+  }
+}
+
+@mixin layout($breakpoints: $breakpoints) {
+  .grid {
+    display: grid;
+    grid-gap: apply-var(grid-gap);
+    grid-template-columns: repeat($columnCount, 1fr);
+  }
+
+  @each $breakpoint in $breakpoints {
+    @include breakpoint($breakpoint) {
+      @include col($breakpoint);
+    }
+  }
+}

@@ -1,0 +1,90 @@
+.flex-group {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  &.has-grow-1 {
+    flex-grow: 1;
+  }
+}
+
+@mixin flex-with-breakpoint($suffix: null) {
+  .#{string-join(u-jc-around $suffix)} {
+    justify-content: space-around;
+  }
+
+  .#{string-join(u-jc-between $suffix)} {
+    justify-content: space-between;
+  }
+
+  .#{string-join(u-jc-center $suffix)} {
+    justify-content: center;
+  }
+
+  .#{string-join(u-jc-end $suffix)} {
+    justify-content: flex-end;
+  }
+
+  .#{string-join(u-jc-start $suffix)} {
+    justify-content: flex-start;
+  }
+
+  .#{string-join(u-ai-start $suffix)} {
+    align-items: flex-start;
+  }
+
+  .#{string-join(u-ai-center $suffix)} {
+    align-items: center;
+  }
+
+  .#{string-join(u-ai-end $suffix)} {
+    align-items: flex-end;
+  }
+
+  .#{string-join(u-as-top $suffix)} {
+    align-self: flex-start;
+  }
+
+  .#{string-join(u-as-middle $suffix)} {
+    align-self: center;
+  }
+
+  .#{string-join(u-as-bottom $suffix)} {
+    align-self: flex-end;
+  }
+
+  .#{string-join(u-fd-row $suffix)} {
+    flex-direction: row;
+  }
+
+  .#{string-join(u-fd-row-reverse $suffix)} {
+    flex-direction: row-reverse;
+  }
+
+  .#{string-join(u-fd-column $suffix)} {
+    flex-direction: column;
+  }
+
+  .#{string-join(u-fd-column-reverse $suffix)} {
+    flex-direction: column-reverse;
+  }
+
+  .#{string-join(u-fw-wrap $suffix)} {
+    flex-wrap: wrap;
+  }
+
+  .#{string-join(u-fw-nowrap $suffix)} {
+    flex-wrap: nowrap;
+  }
+
+  .#{string-join(u-fw-reverse $suffix)} {
+    flex-wrap: wrap-reverse;
+  }
+}
+
+@each $breakpoint in $breakpoints {
+  @include breakpoint($breakpoint) {
+    @include flex-with-breakpoint($breakpoint);
+  }
+}

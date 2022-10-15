@@ -1,0 +1,15 @@
+@mixin text-align-with-breakpoint($suffix: null) {
+  $text-aligns: left right justify center;
+
+  @each $text-align in $text-aligns {
+    .#{string-join(u-ta $text-align $suffix)} {
+      text-align: $text-align;
+    }
+  }
+}
+
+@each $breakpoint in $breakpoints {
+  @include breakpoint($breakpoint) {
+    @include text-align-with-breakpoint($breakpoint);
+  }
+}

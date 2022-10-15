@@ -1,0 +1,47 @@
+$_default-options: (
+  font-size: 4px,
+  grid-gap: 2rem 4rem
+);
+
+@mixin core($options: ()) {
+  $options: map-merge($_default-options, $options);
+  $typography: map-get($options, typography);
+
+  :root {
+    @import '~@angular/cdk/overlay-prebuilt.css';
+    @import '~@angular/cdk/a11y-prebuilt.css';
+
+    @include typography($typography);
+    @include layout();
+
+    #{var-name(font-size)}: map-get($options, font-size);
+    #{var-name(grid-gap)}: map-get($options, grid-gap);
+
+    font-size: 4px;
+
+    @supports(--css: variables) {
+      font-size: apply-var(font-size);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+
+      &::before,
+      &::after {
+        box-sizing: border-box;
+      }
+    }
+
+    a,
+    a:link,
+    a:visited {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
+}
+

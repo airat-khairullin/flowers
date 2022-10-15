@@ -1,0 +1,30 @@
+/**
+* String.prototype.join analog in JS
+ */
+@function string-join($args, $separator: '-') {
+  $str: nth($args, 1);
+  @if (length($args) > 1) {
+    @for $i from 2 through length($args) {
+      @if (nth($args, $i) != null) {
+        $str: $str + $separator + nth($args, $i);
+      }
+    }
+  }
+  @return $str;
+}
+
+/**
+* Создаем имя css-переменной в нашем пространстве имен
+* @params $args - лист строк
+*/
+@function var-name($args...) {
+  @return '--' + string-join($args);
+}
+
+/**
+* Применяем css-переменную
+* @params $args - лист строк
+*/
+@function apply-var($args...) {
+  @return var(#{var-name($args...)});
+}

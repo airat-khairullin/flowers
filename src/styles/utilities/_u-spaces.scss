@@ -1,0 +1,26 @@
+$map: (
+  margin-top: mt,
+  margin-right: mr,
+  margin-bottom: mb,
+  margin-left: ml,
+  padding-top: pt,
+  padding-right: pr,
+  padding-bottom: pb,
+  padding-left: pl
+);
+
+@mixin mp-with-breakpoint($breakpoint) {
+  @each $key in map-keys($map) {
+    @for $i from 0 through $columnCount {
+      .#{string-join(u map-get($map, $key) $breakpoint $i)} {
+        #{$key}: #{$i}rem;
+      }
+    }
+  }
+}
+
+@each $breakpoint in $breakpoints {
+  @include breakpoint($breakpoint) {
+    @include mp-with-breakpoint($breakpoint);
+  }
+}

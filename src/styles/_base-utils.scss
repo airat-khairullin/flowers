@@ -1,0 +1,25 @@
+:root {
+  @import "utilities/u-display";
+  @import "utilities/u-flex";
+  @import "utilities/u-spaces";
+  @import "utilities/u-register";
+  @import "utilities/u-sizes";
+  @import "utilities/u-overflow";
+  @import "utilities/u-text-align";
+  @import "utilities/u-line-height";
+  @import "utilities/u-positions";
+  @import "utilities/u-whitespace";
+  @import "utilities/u-hidden-if-empty";
+}
+
+.u-pe-none {
+  pointer-events: none;
+}
+
+.u-c-pointer {
+  cursor: pointer;
+}
+
+.u-c-default {
+  cursor: default;
+}

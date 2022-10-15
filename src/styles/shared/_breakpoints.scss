@@ -1,0 +1,23 @@
+@mixin breakpoint($breakpoint) {
+  @if (index($breakpoints, $breakpoint) == null) {
+    @error 'Breakpoints does not contain a value "#{$breakpoint}"';
+  }
+  @if ($breakpoint == null) {
+    @content;
+  } @else {
+
+    // разнесено на разные селекторы
+    // фикс для firefox и использования селекторов в глобале
+    :host-context(.#{$breakpoint}) {
+      @content;
+    }
+
+    // фикс для firefox, чтобы не группировались селекторы, тк если в группе есть :host-context - стили не читаются
+    // проверяем на display: block, тк он точно везде поддерживается
+    @supports (display: block) {
+      .#{$breakpoint} {  
+        @content;
+      }
+    }
+  }
+}

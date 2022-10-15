@@ -1,0 +1,15 @@
+@mixin display-with-breakpoint($suffix: null) {
+  $displays: none inline block flex inline-block inline-flex;
+
+  @each $display in $displays {
+    .#{string-join(u-d $display $suffix)} {
+      display: $display;
+    }
+  }
+}
+
+@each $breakpoint in $breakpoints {
+  @include breakpoint($breakpoint) {
+    @include display-with-breakpoint($breakpoint);
+  }
+}
