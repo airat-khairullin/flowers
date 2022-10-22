@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {LayoutObserver} from "../libs/shared/layout/src";
 
+
 @NgModule({
   declarations: [
     AppComponent

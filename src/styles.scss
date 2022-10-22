@@ -1,4 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'swiper/css';
+@import 'swiper/css/controller';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'swiper/css/scrollbar';
+@import 'swiper/css/keyboard';
+@import 'swiper/css/history';
+@import 'swiper/css/effect-fade';
+
 @import "styles/variables";
 @import "styles/scaffold";
 @import "styles/base-utils";

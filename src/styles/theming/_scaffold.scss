@@ -23,6 +23,9 @@ $_default-options: (
       font-size: apply-var(font-size);
     }
 
+    background: apply-var(burgundy);
+    color: apply-var(white);
+
     * {
       margin: 0;
       padding: 0;
