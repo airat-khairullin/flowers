@@ -1,14 +1,31 @@
-<swiper class="fullpage-swiper" [config]="config">
+<swiper class="fullpage-swiper" [config]="config" *ngIf="isDesktop">
   <ng-template swiperSlide>
-    Slide 1
+    <app-hero-section></app-hero-section>
   </ng-template>
   <ng-template swiperSlide>
-    Slide 2
+    section 2
   </ng-template>
   <ng-template swiperSlide>
-    Slide 3
+    section 3
   </ng-template>
   <ng-template swiperSlide>
-    Slide 4
+    section 4
   </ng-template>
 </swiper>
+
+<div *ngIf="!isDesktop">
+  <div class="section">
+    <app-hero-section></app-hero-section>
+  </div>
+
+  <div class="section" style="background:#000;">
+    section 2
+  </div>
+  <div class="section" style="background:green">
+    section 3
+  </div>
+  <div class="section" style="background:red">
+    section 4
+  </div>
+</div>
+

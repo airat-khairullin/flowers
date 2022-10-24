@@ -4,12 +4,12 @@ import { Observable } from 'rxjs';
 import { map, pairwise, startWith, tap } from 'rxjs/operators';
 import { coerceElement } from '@angular/cdk/coercion';
 
-import { ScBreakpoints, MediaQueries } from './breakpoints';
+import { Breakpoints, MediaQueries } from './breakpoints';
 
 /**
  * Токен для инъекции {@link MediaQueries}
  */
-export const MEDIA_QUERIES = new InjectionToken<Map<ScBreakpoints, string>>('MEDIA QUERIES', {
+export const MEDIA_QUERIES = new InjectionToken<Map<Breakpoints, string>>('MEDIA QUERIES', {
   providedIn: 'root',
   factory() {
     return MediaQueries;
@@ -23,7 +23,7 @@ export const MEDIA_QUERIES = new InjectionToken<Map<ScBreakpoints, string>>('MED
   providedIn: 'root'
 })
 export class LayoutObserver {
-  private readonly breakpoints: Observable<ScBreakpoints[]>;
+  private readonly breakpoints: Observable<Breakpoints[]>;
 
   /**
    * @ignore
@@ -33,7 +33,7 @@ export class LayoutObserver {
    */
   constructor(private breakpointObserver: BreakpointObserver,
               private mediaMatcher: MediaMatcher,
-              @Inject(MEDIA_QUERIES) private mediaQueries: Map<ScBreakpoints, string>) {
+              @Inject(MEDIA_QUERIES) private mediaQueries: Map<Breakpoints, string>) {
     this.breakpoints = breakpointObserver.observe([...this.mediaQueries.values()]).pipe(
       map(() => {
         return [...this.mediaQueries.entries()]
@@ -49,10 +49,10 @@ export class LayoutObserver {
    *
    * @param element
    */
-  public injectTo(element: HTMLElement | ElementRef<HTMLElement>): Observable<ScBreakpoints[]> {
+  public injectTo(element: HTMLElement | ElementRef<HTMLElement>): Observable<Breakpoints[]> {
     const htmlElement = coerceElement<HTMLElement>(element);
     return this.observe().pipe(
-      startWith<ScBreakpoints[]>([]),
+      startWith<Breakpoints[]>([]),
       pairwise(),
       tap(([previous, current]) => {
         const prevSet = new Set(previous);
@@ -76,7 +76,7 @@ export class LayoutObserver {
   /**
    * Возвращает Observable, который испускает текущие ьрейкпоинты при изменении вьюпорта
    */
-  public observe(): Observable<ScBreakpoints[]> {
+  public observe(): Observable<Breakpoints[]> {
     return this.breakpoints;
   }
 }

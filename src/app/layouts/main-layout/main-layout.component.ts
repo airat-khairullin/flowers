@@ -13,4 +13,7 @@ export class MainLayoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  toggleNav(isOpen: boolean) {
+    console.log(isOpen, 'isOpen')
+  }
 }

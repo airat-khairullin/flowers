@@ -1,3 +1,7 @@
 <div class="page">
+  <div class="header-wrapper">
+    <app-header (navigationState)="toggleNav($event)"></app-header>
+  </div>
+
   <router-outlet></router-outlet>
 </div>

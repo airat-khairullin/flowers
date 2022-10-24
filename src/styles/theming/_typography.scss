@@ -8,24 +8,24 @@
 }
 
 $_default-typography-options: (
-  font-family: SFUIDisplay,
+  font-family: 'SFUIDisplay',
   levels: (
-    h1: typography-level(14rem, 16rem, 600, SFUIDisplay),
-    h2: typography-level(12rem, 14rem, 600, SFUIDisplay),
-    h3: typography-level(10rem, 12rem, 600, SFUIDisplay),
-    h4: typography-level(8rem, 10rem, 600, SFUIDisplay),
-    h5: typography-level(6rem, 8rem, 600, SFUIDisplay),
-    h6: typography-level(5rem, 7rem, 600, SFUIDisplay),
-    subheading-l: typography-level(8rem, 10rem, 400, SFUIDisplay),
-    subheading-m: typography-level(7rem, 9rem, 400, SFUIDisplay),
-    subheading-s: typography-level(6rem, 8rem, 400, SFUIDisplay),
-    subheading-xs: typography-level(5rem, 7rem, 400, SFUIDisplay),
-    body-l: typography-level(4.5rem, 7rem, 400, SFUIDisplay),
-    body-m: typography-level(4rem, 6rem, 400, SFUIDisplay),
-    body-s: typography-level(3.5rem, 5rem, 400, SFUIDisplay),
-    description-l: typography-level(3rem, 4rem, 400, SFUIDisplay),
-    description-m: typography-level(2.75rem, 4rem, 400, SFUIDisplay),
-    description-s: typography-level(2.5rem, 3rem, 400, SFUIDisplay),
+    h1: typography-level(14rem, 16rem, 600, 'SFUIDisplay'),
+    h2: typography-level(12rem, 14rem, 600, 'SFUIDisplay'),
+    h3: typography-level(10rem, 12rem, 600, 'SFUIDisplay'),
+    h4: typography-level(8rem, 10rem, 600, 'SFUIDisplay'),
+    h5: typography-level(6rem, 8rem, 600, 'SFUIDisplay'),
+    h6: typography-level(5rem, 7rem, 600, 'SFUIDisplay'),
+    subheading-l: typography-level(8rem, 10rem, 400, 'SFUIDisplay'),
+    subheading-m: typography-level(7rem, 9rem, 400, 'SFUIDisplay'),
+    subheading-s: typography-level(6rem, 8rem, 400, 'SFUIDisplay'),
+    subheading-xs: typography-level(5rem, 7rem, 400, 'SFUIDisplay'),
+    body-l: typography-level(4.5rem, 7rem, 400, 'SFUIDisplay'),
+    body-m: typography-level(4rem, 6rem, 400, 'SFUIDisplay'),
+    body-s: typography-level(3.5rem, 5rem, 400, 'SFUIDisplay'),
+    description-l: typography-level(3rem, 4rem, 400, 'SFUIDisplay'),
+    description-m: typography-level(2.75rem, 4rem, 400, 'SFUIDisplay'),
+    description-s: typography-level(2.5rem, 3rem, 400, 'SFUIDisplay'),
     breakpoints: ()
   )
 );
@@ -74,7 +74,7 @@ $_nativeElementMap: (
   }
 
   .typography {
-    @include typography-level-to-style(typography-level(4rem, 6rem, normal, SFUIDisplay));
+    @include typography-level-to-style(typography-level(4rem, 6rem, 400, 'SFUIDisplay'));
 
     @each $levelName, $elementNames in $_nativeElementMap {
       @if (map-has-key($levels, $levelName)) {

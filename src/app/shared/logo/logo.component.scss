@@ -1,0 +1,31 @@
+:host {
+}
+
+.header {
+  height: 15rem;
+  background: var(--burgundy);
+
+  .container {
+    padding: 0 7.5rem;
+  }
+}
+
+:host-context(.mr-sm) {
+  .header {
+    height: auto;
+    background: transparent;
+
+    .container {
+      padding: 7.5rem 15.5rem;
+    }
+  }
+}
+
+:host-context(.mr-lg) {
+  .header {
+
+    .container {
+      padding: 21.25rem 23rem;
+    }
+  }
+}

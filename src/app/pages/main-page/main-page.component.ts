@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-
+import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
+import {Subscription} from "rxjs";
 // import Swiper core and required modules
 import SwiperCore, {
   EffectFade,
@@ -8,6 +8,8 @@ import SwiperCore, {
   Controller,
   Mousewheel
 } from 'swiper';
+
+import {Breakpoints, LayoutObserver} from "../../../libs/shared/layout/src";
 
 
 SwiperCore.use([Keyboard, Controller, Mousewheel, EffectFade]);
@@ -18,12 +20,23 @@ SwiperCore.use([Keyboard, Controller, Mousewheel, EffectFade]);
   styleUrls: ['./main-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent implements OnInit, OnDestroy {
+  private subscriptions: Subscription = new Subscription();
+  public isDesktop: boolean = false;
 
-  constructor() {
+  constructor(public layoutObserver: LayoutObserver) {
+    this.subscriptions.add(
+      this.layoutObserver.observe().subscribe((breakpoints: Breakpoints[]) => {
+        this.isDesktop = breakpoints.includes(Breakpoints.mrMD);
+      })
+    );
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
   public config: SwiperOptions = {

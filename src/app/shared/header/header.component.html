@@ -1,0 +1,17 @@
+<div class="header u-d-flex u-ai-center">
+  <div class="container u-w-100 u-d-flex u-jc-between">
+    <div class="logo-wrap">
+      <app-logo></app-logo>
+    </div>
+    <div class="header-burger">
+      <a (click)="toggleNav()" class="burger" [class.burger_close]="isOpen">
+        <div class="burger-icon">
+          <span></span>
+        </div>
+        <span class="burger-title">
+          Меню
+        </span>
+      </a>
+    </div>
+  </div>
+</div>

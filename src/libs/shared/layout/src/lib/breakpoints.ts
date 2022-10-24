@@ -1,7 +1,7 @@
 /**
  * Основные брейкпоинты
  */
-export enum ScBreakpoints {
+export enum Breakpoints {
   XS = 'xs',
   SM = 'sm',
   MD = 'md',
@@ -32,26 +32,26 @@ export enum ScBreakpoints {
 /**
  * Сопоставления брейкпоинта и css медиа-запросов
  */
-export const MediaQueries = new Map<ScBreakpoints, string>()
-  .set(ScBreakpoints.XS, 'screen and (max-width: 479px)')
-  .set(ScBreakpoints.SM, 'screen and (min-width: 480px) and (max-width: 767px)')
-  .set(ScBreakpoints.MD, 'screen and (min-width: 768px) and (max-width: 1023px)')
-  .set(ScBreakpoints.LG, 'screen and (min-width: 1024px) and (max-width: 1279px)')
-  .set(ScBreakpoints.XL, 'screen and (min-width: 1280px) and (max-width: 1919px)')
-  .set(ScBreakpoints.XXL, 'screen and (min-width: 1920px)')
+export const MediaQueries = new Map<Breakpoints, string>()
+  .set(Breakpoints.XS, 'screen and (max-width: 479px)')
+  .set(Breakpoints.SM, 'screen and (min-width: 480px) and (max-width: 767px)')
+  .set(Breakpoints.MD, 'screen and (min-width: 768px) and (max-width: 1023px)')
+  .set(Breakpoints.LG, 'screen and (min-width: 1024px) and (max-width: 1279px)')
+  .set(Breakpoints.XL, 'screen and (min-width: 1280px) and (max-width: 1919px)')
+  .set(Breakpoints.XXL, 'screen and (min-width: 1920px)')
 
-  .set(ScBreakpoints.lsSM, 'screen and (max-width: 479px)')
-  .set(ScBreakpoints.lsMD, 'screen and (max-width: 767px)')
-  .set(ScBreakpoints.lsLG, 'screen and (max-width: 1023px)')
-  .set(ScBreakpoints.lsXL, 'screen and (max-width: 1279px)')
-  .set(ScBreakpoints.lsXXL, 'screen and (max-width: 1919px)')
+  .set(Breakpoints.lsSM, 'screen and (max-width: 479px)')
+  .set(Breakpoints.lsMD, 'screen and (max-width: 767px)')
+  .set(Breakpoints.lsLG, 'screen and (max-width: 1023px)')
+  .set(Breakpoints.lsXL, 'screen and (max-width: 1279px)')
+  .set(Breakpoints.lsXXL, 'screen and (max-width: 1919px)')
 
-  .set(ScBreakpoints.mrXS, 'screen and (min-width: 480px)')
-  .set(ScBreakpoints.mrSM, 'screen and (min-width: 768px)')
-  .set(ScBreakpoints.mrMD, 'screen and (min-width: 1024px)')
-  .set(ScBreakpoints.mrLG, 'screen and (min-width: 1280px)')
-  .set(ScBreakpoints.mrXL, 'screen and (min-width: 1920px)')
+  .set(Breakpoints.mrXS, 'screen and (min-width: 480px)')
+  .set(Breakpoints.mrSM, 'screen and (min-width: 768px)')
+  .set(Breakpoints.mrMD, 'screen and (min-width: 1024px)')
+  .set(Breakpoints.mrLG, 'screen and (min-width: 1280px)')
+  .set(Breakpoints.mrXL, 'screen and (min-width: 1920px)')
 
-  .set(ScBreakpoints.Handset, '(max-width: 479px) and (orientation: portrait), (max-width: 959px) and (orientation: landscape)')
-  .set(ScBreakpoints.Tablet, '(min-width: 478px) and (max-width: 839px) and (orientation: portrait), (min-width: 960px) and (max-width: 1279px) and (orientation: landscape)')
-  .set(ScBreakpoints.Desktop, '(min-width: 840px) and (orientation: portrait), (min-width: 1280px) and (orientation: landscape)');
+  .set(Breakpoints.Handset, '(max-width: 479px) and (orientation: portrait), (max-width: 959px) and (orientation: landscape)')
+  .set(Breakpoints.Tablet, '(min-width: 478px) and (max-width: 839px) and (orientation: portrait), (min-width: 960px) and (max-width: 1279px) and (orientation: landscape)')
+  .set(Breakpoints.Desktop, '(min-width: 840px) and (orientation: portrait), (min-width: 1280px) and (orientation: landscape)');

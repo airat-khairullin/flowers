@@ -1,0 +1,139 @@
+.header {
+  height: 15rem;
+  background: var(--burgundy);
+
+  .logo-wrap {
+    max-width: 25rem;
+  }
+
+  .container {
+    padding: 0 7.5rem;
+  }
+}
+
+.burger {
+  display: flex;
+  position: relative;
+  z-index: 110;
+  border: 0;
+  padding: 0;
+  line-height: 30px;
+  background: 0 0;
+  user-select: none;
+  cursor: pointer;
+  color: var(--white);
+
+  &-icon {
+    margin-top: -2px;
+
+
+    span {
+      display: inline-block;
+      position: relative;
+      width: 24px;
+      height: 30px;
+      margin-top: 2px;
+      vertical-align: middle;
+      font-size: 0;
+      color: transparent;
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        top: 50%;
+
+        transition: top .3s .3s, transform .3s;
+      }
+
+      &:before {
+        transform: translateY(-50%);
+        margin-top: -4px;
+      }
+
+      &:after {
+        transform: translateY(50%);
+        margin-bottom: -4px;
+      }
+    }
+
+    .burger_close & {
+      span {
+        transition: background .3s 0s;
+        background: 0 0;
+
+        &:before,
+        &:after {
+          transition: .5s;
+        }
+
+        &:before {
+          transform: translateY(-50%) rotate(45deg);;
+          margin: 0;
+        }
+
+        &:after {
+          transform: translateY(-50%) rotate(-45deg);
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  &-title {
+    text-transform: uppercase;
+    font-size: 20px;
+    opacity: 1;
+    margin-left: 15px;
+    transition: .5s;
+    letter-spacing: 0.06em;
+
+    .burger_close & {
+      opacity: 0;
+    }
+  }
+}
+
+:host-context(.mr-sm) {
+  .burger-icon span {
+    width: 5.25rem;
+  }
+
+  .header {
+    height: auto;
+    background: transparent;
+
+    .logo-wrap {
+      max-width: 39.25rem;
+    }
+
+    .container {
+      padding: 7.5rem 15.5rem;
+    }
+  }
+}
+
+:host-context(.mr-lg) {
+  .burger-title {
+    display: none;
+  }
+
+  .burger-icon span {
+    width: 8.75rem;
+  }
+
+  .header {
+    background: transparent;
+    .logo-wrap {
+      max-width: 39.5rem;
+    }
+
+    .container {
+      padding: 21.25rem 23rem;
+    }
+  }
+}

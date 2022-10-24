@@ -12,7 +12,7 @@
 @mixin layout($breakpoints: $breakpoints) {
   .grid {
     display: grid;
-    grid-gap: apply-var(grid-gap);
+    grid-gap: var(--grid-gap);
     grid-template-columns: repeat($columnCount, 1fr);
   }
 

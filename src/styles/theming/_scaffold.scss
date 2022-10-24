@@ -14,17 +14,17 @@ $_default-options: (
     @include typography($typography);
     @include layout();
 
-    #{var-name(font-size)}: map-get($options, font-size);
-    #{var-name(grid-gap)}: map-get($options, grid-gap);
+    #{var(--font-size)}: map-get($options, font-size);
+    #{var(--grid-gap)}: map-get($options, grid-gap);
 
     font-size: 4px;
 
     @supports(--css: variables) {
-      font-size: apply-var(font-size);
+      font-size: var(--font-size);
     }
 
-    background: apply-var(burgundy);
-    color: apply-var(white);
+    background: var(--burgundy);
+    color: var(--white);
 
     * {
       margin: 0;

@@ -1,7 +1,7 @@
 import { OnDestroy, Pipe, PipeTransform } from '@angular/core';
 import { LayoutObserver } from './layout-observer.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { ScBreakpoints } from './breakpoints';
+import { Breakpoints } from './breakpoints';
 
 export function isDefined(value: any): boolean {
   return value !== undefined && value !== null;
@@ -19,7 +19,7 @@ export function isDefined(value: any): boolean {
   pure: false
 })
 export class BreakpointPipe implements PipeTransform, OnDestroy {
-  private breakpoints$ = new BehaviorSubject<ScBreakpoints[]>([]);
+  private breakpoints$ = new BehaviorSubject<Breakpoints[]>([]);
   private subscriptions = new Subscription();
 
   /**
@@ -31,16 +31,16 @@ export class BreakpointPipe implements PipeTransform, OnDestroy {
   }
 
   /**
-   * Резолв значения из объекта, ключи которого являются {@link ScBreakpoints}
+   * Резолв значения из объекта, ключи которого являются {@link Breakpoints}
    * @param value
    * @return Возвращается значение, которое соответсвует текущему брикпоинту
    */
-  transform(value: { [key in ScBreakpoints]?: any } & { default?: any }): any {
+  transform(value: { [key in Breakpoints]?: any } & { default?: any }): any {
     if (!value) {
       return null;
     }
 
-    const bp: ScBreakpoints | 'default' = this.breakpoints$.value
+    const bp: Breakpoints | 'default' = this.breakpoints$.value
         .find(breakpoint => value.hasOwnProperty(breakpoint))
       || 'default';
 
